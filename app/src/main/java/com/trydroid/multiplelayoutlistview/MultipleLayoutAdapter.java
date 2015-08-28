@@ -52,24 +52,24 @@ public class MultipleLayoutAdapter extends BaseAdapter {
         int viewType = getItemViewType(position);
         switch (viewType) {
             case Item.TYPE_EDITTEXT:
-                convertView = inflateEditTextView(convertView, item);
+                convertView = inflateEditTextView(convertView, parent, item);
                 break;
 
             case Item.TYPE_TEXTVIEW:
-                convertView = inflateTextView(convertView, item);
+                convertView = inflateTextView(convertView, parent, item);
                 break;
 
             case Item.TYPE_IMAGEVIEW:
-                convertView = inflateImageView(convertView, item);
+                convertView = inflateImageView(convertView, parent, item);
                 break;
         }
         return convertView;
     }
 
-    private View inflateEditTextView(View convertView, Item item) {
+    private View inflateEditTextView(View convertView, ViewGroup parent, Item item) {
         EditTextViewHolder viewHolder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.edittext_list_row, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.edittext_list_row, parent, false);
             viewHolder = new EditTextViewHolder(convertView);
             convertView.setTag(viewHolder);
         }
@@ -82,10 +82,10 @@ public class MultipleLayoutAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private View inflateTextView(View convertView, Item item) {
+    private View inflateTextView(View convertView, ViewGroup parent, Item item) {
         TextViewHolder viewHolder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.textview_list_row, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.textview_list_row, parent, false);
             viewHolder = new TextViewHolder(convertView);
             convertView.setTag(viewHolder);
         }
@@ -98,10 +98,10 @@ public class MultipleLayoutAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private View inflateImageView(View convertView, Item item) {
+    private View inflateImageView(View convertView, ViewGroup parent, Item item) {
         ImageViewHolder viewHolder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(context).inflate(R.layout.imageview_list_row, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.imageview_list_row, parent, false);
             viewHolder = new ImageViewHolder(convertView);
             convertView.setTag(viewHolder);
         }
