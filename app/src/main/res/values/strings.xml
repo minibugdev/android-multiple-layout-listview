@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">MultipleLayoutListview</string>
+    <string name="app_name">Multiple Layout Listview</string>
+    <string name="list_view">List view example</string>
+    <string name="recycler_view">Recycler view example</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>

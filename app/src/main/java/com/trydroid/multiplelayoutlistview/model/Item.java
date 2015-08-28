@@ -1,4 +1,4 @@
-package com.trydroid.multiplelayoutlistview;
+package com.trydroid.multiplelayoutlistview.model;
 
 public class Item {
     public static final int TYPE_EDITTEXT  = 0;

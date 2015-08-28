@@ -2,22 +2,23 @@ package com.trydroid.multiplelayoutlistview;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ListView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
-import com.trydroid.multiplelayoutlistview.adapter.MultipleLayoutAdapter;
+import com.trydroid.multiplelayoutlistview.adapter.MultipleLayoutRecyclerAdapter;
 import com.trydroid.multiplelayoutlistview.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListViewActivity extends AppCompatActivity {
+public class RecyclerViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_view);
+        setContentView(R.layout.activity_recycler_view);
 
-        ListView listView = (ListView) findViewById(R.id.listview);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
 
         List<Item> items = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
@@ -26,7 +27,7 @@ public class ListViewActivity extends AppCompatActivity {
             items.add(new Item("I am ImageView layout #" + i, Item.TYPE_IMAGEVIEW));
         }
 
-        MultipleLayoutAdapter adapter = new MultipleLayoutAdapter(this, items);
-        listView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new MultipleLayoutRecyclerAdapter(items));
     }
 }

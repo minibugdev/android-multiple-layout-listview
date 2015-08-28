@@ -1,4 +1,4 @@
-package com.trydroid.multiplelayoutlistview;
+package com.trydroid.multiplelayoutlistview.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.trydroid.multiplelayoutlistview.model.Item;
+import com.trydroid.multiplelayoutlistview.R;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultipleLayoutAdapter extends BaseAdapter {
@@ -18,7 +22,7 @@ public class MultipleLayoutAdapter extends BaseAdapter {
 
     public MultipleLayoutAdapter(Context context, List<Item> items) {
         this.context = context;
-        this.items = items;
+        this.items = new ArrayList<>(items);
     }
 
     @Override
